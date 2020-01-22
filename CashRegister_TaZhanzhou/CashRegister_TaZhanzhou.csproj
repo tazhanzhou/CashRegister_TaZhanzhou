@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddTransactionLine.cs" />
+    <Compile Include="CancelTransactionLine.cs" />
+    <Compile Include="CashRegister.cs" />
+    <Compile Include="DeleteTransactionLine.cs" />
+    <Compile Include="GUI.cs" />
+    <Compile Include="IAction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
