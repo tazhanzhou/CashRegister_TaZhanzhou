@@ -14,12 +14,12 @@ namespace CashRegister_TaZhanzhou
             GUI display = new GUI();
             //instantiation the cashier
             CashRegister cashier = new CashRegister();
-
+            Console.Clear();
+            display.ShowMenu();
             while (yesToContinue)
             {
-                Console.Clear();
+                Console.WriteLine("-----------------------------------------");
                 //require input the unit number and unit price
-                display.ShowMenu();
                 var unitNumber = display.EnterTransactionLine("number of unites");
                 var unitPrice = display.EnterTransactionLine("unit price");
                 //select Add, Delete or Cancel
@@ -29,16 +29,18 @@ namespace CashRegister_TaZhanzhou
                 cashier.UnitPrice = unitPrice;
                 cashier.DoTransationLine(action);
                 //print the result of this transaction
-                Console.WriteLine(unitNumber + " x unites");
-                Console.WriteLine("unit price = "+unitPrice);
-                Console.WriteLine("Total Amount = "+ cashier.TotalAmount);
+                Console.WriteLine("Quantity: " + unitNumber);
+                Console.WriteLine("Unit Price: " + unitPrice);
+                Console.WriteLine("Total Amount: " + cashier.TotalAmount);
+                Console.WriteLine("-----------------------------------------");
                 Console.Write("Continue: (Y/N)? ");
                 var contKey = Console.ReadKey();
+                Console.WriteLine(" ");
                 yesToContinue = (contKey.Key == ConsoleKey.Y ? true : false);
             }
             //print the result of the day transaction
-            Console.WriteLine("Transaction times = " + cashier.TransactionTotal);
-            Console.WriteLine("Grand Total = " + cashier.GrandTotal);
+            Console.WriteLine("Transaction Times: " + cashier.TransactionTotal);
+            Console.WriteLine("Grand Total: " + cashier.GrandTotal);
             var hold = Console.ReadKey();
         }
     }
